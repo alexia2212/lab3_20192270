@@ -1,8 +1,8 @@
 package com.example.lab3_20192270.controller;
 
-import com.example.lab3_20192270.entity.DoctoresEntity;
-import com.example.lab3_20192270.entity.HospitalEntity;
-import com.example.lab3_20192270.repository.HospitalRepository;
+
+import com.example.lab3_20192270.entity.PacienteEntity;
+import com.example.lab3_20192270.repository.PacienteRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,23 +11,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/hospital")
-public class HospitalController {
+@RequestMapping("/paciente")
 
-    final HospitalRepository hospitalRepository;
+public class PacienteController {
+    final PacienteRepository pacienteRepository;
 
-    public HospitalController(HospitalRepository hospitalRepository){
-        this.hospitalRepository = hospitalRepository;
+    public PacienteController(PacienteRepository pacienteRepository){
+        this.pacienteRepository = pacienteRepository;
     }
 
 
 
     @GetMapping(value = {"listahospitales", ""})
     public String listarHospitales(Model model){
-        List<HospitalEntity> lista = hospitalRepository.findAll();
+        List<PacienteEntity> lista = pacienteRepository.findAll();
         model.addAttribute("listahospitales", lista);
         return "index";
     }
-
-
 }
