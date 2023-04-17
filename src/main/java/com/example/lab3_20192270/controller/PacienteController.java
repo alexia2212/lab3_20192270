@@ -14,18 +14,6 @@ import java.util.List;
 @RequestMapping("/paciente")
 
 public class PacienteController {
-    final PacienteRepository pacienteRepository;
-
-    public PacienteController(PacienteRepository pacienteRepository){
-        this.pacienteRepository = pacienteRepository;
-    }
 
 
-
-    @GetMapping(value = {"listahospitales", ""})
-    public String listarHospitales(Model model){
-        List<PacienteEntity> lista = pacienteRepository.findAll();
-        model.addAttribute("listahospitales", lista);
-        return "index";
-    }
 }

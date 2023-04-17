@@ -21,10 +21,4 @@ public class DoctorController {
     }
 
 
-    @GetMapping(value = {"listadoctores", ""})
-    public String listarDoctores(Model model){
-        List<DoctoresEntity> lista = doctorRepository.findAll();
-        model.addAttribute("listadoctores", lista);
-        return "listaDoctores";
-    }
 }
